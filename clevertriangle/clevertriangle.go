@@ -11,6 +11,14 @@ type CleverTriangle struct {
 	Behavior behavior.Behavior
 }
 
+func WrapTriangle(triangle geometry.Triangle, behavior behavior.Behavior) CleverTriangle {
+	return CleverTriangle{
+		triangle,
+		false,
+		behavior,
+	}
+}
+
 func NewCleverTriangle(A, B, C geometry.Point, behavior behavior.Behavior) CleverTriangle {
 	t := geometry.Triangle{A: A, B: B, C: C}
 	behavior.Init(t)

@@ -92,14 +92,14 @@ func main() {
 			}
 
 			for _, t := range triangles {
-				dc.SetRGBA(1, 1, 1, 1)
-				dc.SetLineWidth(2)
-				t.Draw(dc)
-				dc.Stroke()
 				t.Draw(dc)
 				// 46, 45, 77
 				dc.SetRGBA(46./255., 45./255., 77./255., 0.5+0.5*float64(t.Depth)/float64(maxdepth))
 				dc.Fill()
+				dc.SetRGBA(1, 1, 1, 1)
+				dc.SetLineWidth(2)
+				t.Draw(dc)
+				dc.Stroke()
 			}
 
 		}
