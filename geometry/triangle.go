@@ -306,3 +306,25 @@ func LineCollision(pta0, ptb0, pta1, ptb1 Point) bool {
 	}
 	return false
 }
+
+func UniformTriangleCenteredOn(x, y, d float64) Triangle {
+	triangleSideLength := math.Cos(math.Pi/6) * 2. * d
+	triangleVerticalSep := math.Sqrt((3. / 4.) * math.Pow(triangleSideLength, 2))
+	// TriangleHorizSep := triangleSideLength / 2.
+
+	y += (triangleVerticalSep - d) / 2
+
+	theta := make([]float64, 0)
+	for i := 0; i < 3; i++ {
+		newTheta := float64(i)*math.Pi*(2./3.) - math.Pi/2.
+		theta = append(theta, newTheta)
+	}
+
+	return Triangle{
+		Point{x + d*math.Cos(theta[0]), y + d*math.Sin(theta[0])},
+		Point{x + d*math.Cos(theta[1]), y + d*math.Sin(theta[1])},
+		Point{x + d*math.Cos(theta[2]), y + d*math.Sin(theta[2])},
+		false, false, false,
+		0,
+	}
+}
