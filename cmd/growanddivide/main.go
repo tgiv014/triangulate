@@ -14,7 +14,7 @@ import (
 const (
 	DPI = 300.
 	W   = (8. * DPI)
-	H   = (10. * DPI)
+	H   = (8. * DPI)
 )
 
 func DrawGroup(dc *gg.Context, t geometry.Triangle) {
